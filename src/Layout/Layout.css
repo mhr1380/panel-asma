@@ -1,0 +1,27 @@
+.layout {
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  background-color: #f7f7f7;
+  overflow-y: hidden;
+}
+.desktop-title {
+  /* display: none; */
+  margin-top: 20px;
+  padding-right: 100px;
+}
+.desktop-title h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #54bab9;
+}
+.desktop-title h2 {
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #54bab9;
+}
+@media only screen and (max-width: 900px) {
+  .desktop-title {
+    display: none;
+  }
+}

@@ -1,0 +1,51 @@
+.advertisement-top {
+  color: #54bab9;
+  font-size: 20px;
+  font-weight: 300;
+}
+.advertisement-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+.advertisement-text-container {
+  width: 279px;
+  height: 357px;
+  background-color: white;
+  margin-top: 50px;
+  box-shadow: 0px 3px 6px #0000001a;
+  border-radius: 15px;
+  padding: 20px;
+}
+.advertisement-text-container textarea {
+  letter-spacing: 0.4px;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  resize: none;
+  outline: none;
+  text-align: center;
+  color: #54bab9;
+  font-weight: 200;
+}
+.mg-t-70 {
+  margin-top: 70px;
+}
+@media only screen and (min-width: 900px) {
+  .advertisement-text-container {
+    width: 548px;
+    height: 215px;
+    margin-top: 20px;
+  }
+  .advertisement-container {
+    align-items: flex-start;
+    padding-right: 100px;
+    max-width: 650px;
+    margin-top: 100px;
+  }
+  .ad-btn {
+    margin-top: 40px;
+  }
+}
