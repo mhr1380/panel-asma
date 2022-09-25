@@ -10,6 +10,7 @@ import settings from "../assets/images/settings.png";
 import close from "../assets/images/close.png";
 
 import "./Header.css";
+import { Link, NavLink } from "react-router-dom";
 const Header = ({ title }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [desktopMenu, setDesktopMenu] = useState(false);
@@ -23,21 +24,31 @@ const Header = ({ title }) => {
           }}
         ></div>
         <div className={`mobile-menu ${mobileMenu ? "show" : ""}`}>
-          <div className="mobile-menu-item show">
-            <p>دسته بندی</p>
-          </div>{" "}
-          <div className="mobile-menu-item">
-            <p>کلمه</p>
-          </div>{" "}
-          <div className="mobile-menu-item">
-            <p>تبلیغات</p>
-          </div>{" "}
-          <div className="mobile-menu-item">
-            <p>مالی</p>
-          </div>{" "}
-          <div className="mobile-menu-item">
-            <p>درخواست</p>
-          </div>
+          <NavLink to="/categories" activeClassName="active">
+            <div className="mobile-menu-item">
+              <p>دسته بندی</p>
+            </div>
+          </NavLink>
+          <NavLink to="/words" activeClassName="active">
+            <div className="mobile-menu-item">
+              <p>کلمه</p>
+            </div>
+          </NavLink>
+          <NavLink to="/advertisement" activeClassName="active">
+            <div className="mobile-menu-item">
+              <p>تبلیغات</p>
+            </div>
+          </NavLink>
+          <NavLink to="/finance" activeClassName="active">
+            <div className="mobile-menu-item">
+              <p>مالی</p>
+            </div>
+          </NavLink>
+          <NavLink to="/requests" activeClassName="active">
+            <div className="mobile-menu-item">
+              <p>درخواست</p>
+            </div>
+          </NavLink>
         </div>
         <header className="header-container">
           <img
@@ -48,7 +59,9 @@ const Header = ({ title }) => {
             }}
           />
           <h1 className="header-title">{title}</h1>
-          <img src={search} className="search" />
+          <Link to="/search">
+            <img src={search} className="search" />
+          </Link>
         </header>
       </div>
       {/* <div className={`${desktopMenu && "show"}`}>
@@ -57,36 +70,46 @@ const Header = ({ title }) => {
         </div>
       </div> */}
       <div className={`desktop-nav ${desktopMenu && "show"}`}>
-        <div className="desktop-nav-item">
-          <div className="desktop-nav-item-icon-container">
-            <img src={apps} />
+        <NavLink to="/categories" activeClassName="active">
+          <div className="desktop-nav-item">
+            <div className="desktop-nav-item-icon-container">
+              <img src={apps} />
+            </div>
+            <p className="desktop-nav-item-title">دسته بندی</p>
           </div>
-          <p className="desktop-nav-item-title">دسته بندی</p>
-        </div>{" "}
-        <div className="desktop-nav-item">
-          <div className="desktop-nav-item-icon-container">
-            <img src={letter} />
+        </NavLink>
+        <NavLink to="/words" activeClassName="active">
+          <div className="desktop-nav-item">
+            <div className="desktop-nav-item-icon-container">
+              <img src={letter} />
+            </div>
+            <p className="desktop-nav-item-title">کلمات</p>
           </div>
-          <p className="desktop-nav-item-title">کلمات</p>
-        </div>{" "}
-        <div className="desktop-nav-item">
-          <div className="desktop-nav-item-icon-container">
-            <img src={ads} />
+        </NavLink>
+        <NavLink to="/advertisement" activeClassName="active">
+          <div className="desktop-nav-item">
+            <div className="desktop-nav-item-icon-container">
+              <img src={ads} />
+            </div>
+            <p className="desktop-nav-item-title">تبلیغات</p>
           </div>
-          <p className="desktop-nav-item-title">تبلیغات</p>
-        </div>{" "}
-        <div className="desktop-nav-item">
-          <div className="desktop-nav-item-icon-container">
-            <img src={finance} />
+        </NavLink>
+        <NavLink to="/finance" activeClassName="active">
+          <div className="desktop-nav-item">
+            <div className="desktop-nav-item-icon-container">
+              <img src={finance} />
+            </div>
+            <p className="desktop-nav-item-title">مالی</p>
           </div>
-          <p className="desktop-nav-item-title">مالی</p>
-        </div>{" "}
-        <div className="desktop-nav-item">
-          <div className="desktop-nav-item-icon-container">
-            <img src={request} />
+        </NavLink>
+        <NavLink to="/requests" activeClassName="active">
+          <div className="desktop-nav-item">
+            <div className="desktop-nav-item-icon-container">
+              <img src={request} />
+            </div>
+            <p className="desktop-nav-item-title">درخواست</p>
           </div>
-          <p className="desktop-nav-item-title">درخواست</p>
-        </div>
+        </NavLink>
         <img
           className={`toggle-desktop ${desktopMenu && "hide"}`}
           src={settings}

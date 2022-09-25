@@ -72,10 +72,10 @@
   color: #54bab9;
   font-weight: 300;
 }
-.mobile-menu-item.show {
+.active .mobile-menu-item {
   background-color: #54bab9;
 }
-.mobile-menu-item.show p {
+.active .mobile-menu-item p {
   color: #fff;
   font-weight: 500;
 }
@@ -104,6 +104,9 @@
   display: flex;
   align-items: center;
   width: 160px;
+}
+.active .desktop-nav-item-icon-container {
+  border: 3px solid #fff;
 }
 .desktop-nav-item-icon-container {
   border: 1px solid #fff;
