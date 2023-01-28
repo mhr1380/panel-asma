@@ -5,6 +5,7 @@ import Finance from "./pages/Finance";
 import Requests from "./pages/Requests";
 import Search from "./pages/Search";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
 
 function App() {
   return (

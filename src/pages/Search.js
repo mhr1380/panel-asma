@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import "./Search.css";
+import React from "react";
 import Layout from "../Layout/Layout";
 const Search = () => {
   const [touchSearchBox, setTouchSearchBox] = useState(false);

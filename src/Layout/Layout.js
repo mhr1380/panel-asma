@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import Header from "./Header";
 import "./Layout.css";
+import React from "react";
 const Layout = ({ children, header, desktopHeader, desktopSubHeader }) => {
   return (
     <Fragment>

@@ -8,7 +8,7 @@ import letter from "../assets/images/letter.png";
 import ads from "../assets/images/ads.png";
 import settings from "../assets/images/settings.png";
 import close from "../assets/images/close.png";
-
+import React from "react";
 import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
 const Header = ({ title }) => {

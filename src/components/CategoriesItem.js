@@ -1,20 +1,34 @@
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import arrow from "../assets/images/arrow.png";
 import { useState, useEffect } from "react";
-const items = [
-  { title: "کلمه" },
-  { title: "امور ناشنوایان" },
-  { title: "جمله سازی" },
-  { title: "آزمون" },
-  { title: "آزمون" },
-];
 const CategoriesItem = ({
   title,
-  showSectionBox,
-  setShowSectionBox,
+  items,
   additionalClass,
+  value,
+  setValue,
+  identifier = "title",
+  extra,
 }) => {
   const [showBox, setShowBox] = useState(false);
+  const [search, setSearch] = useState();
+  const [searchItems, setSearchItems] = useState(items);
+  const [showSectionBox, setShowSectionBox] = useState(false);
+
+  useEffect(() => {
+    setSearchItems(filterSearch(items, ""));
+  }, [items]);
+  useEffect(() => {
+    setSearch(value);
+  }, [value]);
+  const filterSearch = (elements, search) => {
+    if (elements.length === 32) {
+      return [];
+    }
+    return elements.filter((item) => {
+      return item[identifier].includes(search);
+    });
+  };
 
   useEffect(() => {
     const handleRemoveItem = () => {
@@ -28,7 +42,6 @@ const CategoriesItem = ({
     };
     handleRemoveItem();
   }, [showSectionBox]);
-
   return (
     <Fragment>
       {" "}
@@ -44,14 +57,32 @@ const CategoriesItem = ({
             showSectionBox ? "height-224" : ""
           }`}
         >
-          <input type="text" placeholder="جستجو" />
+          <input
+            type="text"
+            placeholder="جستجو"
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setSearchItems(filterSearch(items, e.target.value));
+            }}
+          />
           <img src={arrow} />
           {/* <div className="dropdown-box"></div> */}
           <div className="categories-list-item">
-            {items.map((item, index) => {
+            {searchItems.map((item, index) => {
               return (
-                <div className="categories-item" key={index}>
-                  {item.title}
+                <div
+                  className="categories-item"
+                  key={index}
+                  onClick={() => {
+                    setValue(item[identifier]);
+                    setSearch(item[identifier]);
+                    if (extra) {
+                      extra(item[identifier] === "کلمه" ? "word" : "affair");
+                    }
+                  }}
+                >
+                  {item[identifier]}
                 </div>
               );
             })}
